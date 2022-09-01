@@ -1,9 +1,8 @@
-from bs4 import BeautifulSoup #качать + html5lib
-import requests #качать
-from fake_useragent import FakeUserAgent #качать
+from bs4 import BeautifulSoup
+import requests
+from fake_useragent import FakeUserAgent
 import os
-import json
-import urllib3 #хз
+import urllib3
 
 
 def connect_to_codeforce(cookie: dict) -> None:
@@ -81,7 +80,7 @@ def writer(word_search: str, file, parsed, pref, suff, sec=1):
     file.write(pref + tmp.contents[0].text + "{}".format(": " + tmp.contents[1] if sec == 1 else "") + suff)
 
 
-def write_all_into(session, CODEFORCEURL, problems: list, GROUP_NAME: str, ORIG_GROUP_NAME: str):
+def write_all_into(session, CODEFORCES_URL, problems: list, GROUP_NAME: str, ORIG_GROUP_NAME: str):
 
     # create dir
     if not os.path.isdir(GROUP_NAME):
